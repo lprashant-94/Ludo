@@ -13,7 +13,7 @@ public class PrivatePlace extends SingleKnightPlace implements Place {
 
 	@Override
 	public boolean canMove(Knight knight, Integer steps) {
-		return knight.getPlayer().equals(player) && canMove(knight, steps);
+		return knight.getPlayer().equals(player) && super.canMove(knight, steps);
 	}
 
 	@Override

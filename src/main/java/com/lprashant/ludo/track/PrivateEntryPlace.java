@@ -7,24 +7,24 @@ public class PrivateEntryPlace extends SingleKnightPlace implements Place {
 
 	Player player;
 	Place privateNext;
-	
+
 	public PrivateEntryPlace(Player player) {
 		this.player = player;
 	}
 
 	@Override
 	public boolean canMove(Knight knight, Integer steps) {
-		if(steps > 0 && knight.getPlayer().equals(player)) {
-			return privateNext.canMove(knight, steps-1);
+		if (steps > 0 && knight.getPlayer().equals(player)) {
+			return privateNext.canMove(knight, steps - 1);
 		}
 		return super.canMove(knight, steps);
 	}
 
 	@Override
 	public void move(Knight knight, Integer steps) {
-		if(steps > 0 && knight.getPlayer().equals(player)) {
-			privateNext.move(knight, steps-1);
-		} else {			
+		if (steps > 0 && knight.getPlayer().equals(player)) {
+			privateNext.move(knight, steps - 1);
+		} else {
 			super.move(knight, steps);
 		}
 	}

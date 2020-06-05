@@ -1,13 +1,16 @@
 package com.lprashant.ludo;
 
+import com.google.common.base.MoreObjects;
 import com.lprashant.ludo.track.Place;
 
 public class Knight {
 
 	Place curPlace;
 	Player player;
+	Integer index;
 
-	public Knight(Place insideHomePlace, Player player) {
+	public Knight(Integer index, Place insideHomePlace, Player player) {
+		this.index = index;
 		curPlace = insideHomePlace;
 		this.player = player;
 	}
@@ -29,7 +32,12 @@ public class Knight {
 	}
 
 	public Player getPlayer() {
-		// TODO Auto-generated method stub
 		return player;
+	}
+
+	@Override
+	public String toString() {
+		return MoreObjects.toStringHelper(getClass()).add("Player", player.getName()).add("Index", index)
+				.add("CurrentPlace", curPlace).toString();
 	}
 }

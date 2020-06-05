@@ -4,9 +4,9 @@ import java.util.Random;
 
 public class Dice {
 	Random r = new Random();
-	
+
 	Integer roll() {
-		return r.nextInt(5) + 1;
+		return r.nextInt(6) + 1;
 	}
-	
+
 }

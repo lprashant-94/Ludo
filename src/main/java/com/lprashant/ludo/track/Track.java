@@ -8,8 +8,6 @@ import com.lprashant.ludo.Player;
 
 public class Track {
 	Map<Player, Player> nextPlayerMap = Maps.newHashMap();
-	Map<Player, InsideHomePlace> insideHomesMap = Maps.newHashMap();
-	Map<Player, HomePlace> playerHomeMap = Maps.newHashMap();
 
 	public Track(List<Player> players) {
 
@@ -18,22 +16,11 @@ public class Track {
 		nextPlayerMap.put(players.get(2), players.get(3));
 		nextPlayerMap.put(players.get(3), players.get(0));
 
-
-		for (Player player : players) {
-			InsideHomePlace insideHome = new InsideHomePlace(player);
-
-			insideHomesMap.put(player, insideHome);
-
-			HomePlace homePlace = new HomePlace(player);
-			insideHome.setNext(homePlace);
-			playerHomeMap.put(player, homePlace);
-		}
-
 		for (Player player : players) {
 
-			HomePlace homePlace = playerHomeMap.get(player);
+			HomePlace homePlace = player.getHomePlace();
 
-			Place lastPlace = homePlace;
+			LinkablePlace lastPlace = homePlace;
 			for (int i = 0; i < 7; i++) {
 				SingleKnightPlace place = new SingleKnightPlace();
 				lastPlace.setNext(place);
@@ -51,13 +38,13 @@ public class Track {
 			}
 
 			Player nextPlayer = nextPlayerMap.get(player);
-			PrivateEntryPlace privateEntryPlace = new PrivateEntryPlace(nextPlayer);// TODO pass next player
+			PrivateEntryPlace privateEntryPlace = new PrivateEntryPlace(nextPlayer);
 			lastPlace.setNext(privateEntryPlace);
 
 			PrivatePlace privatePlace = new PrivatePlace(nextPlayer);
 			privateEntryPlace.setPrivatePlace(privatePlace);
 			lastPlace = privatePlace;
-			
+
 			for (int i = 0; i < 4; i++) {
 				PrivatePlace place = new PrivatePlace(nextPlayer);
 				lastPlace.setNext(place);
@@ -69,7 +56,7 @@ public class Track {
 
 			SingleKnightPlace place = new SingleKnightPlace();
 			privateEntryPlace.setNext(place);
-			place.setNext(playerHomeMap.get(nextPlayer));
+			place.setNext(nextPlayer.getHomePlace());
 		}
 	}
 

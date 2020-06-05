@@ -14,7 +14,7 @@ public class SafePlace extends LinkablePlace implements Place {
 		if (steps == 0) {
 			knight.setPlace(this);
 		} else if (canMove(knight, steps)) {
-			move(knight, steps - 1);
+			nextPlace.move(knight, steps - 1);
 		}
 	}
 

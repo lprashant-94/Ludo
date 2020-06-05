@@ -2,7 +2,6 @@ package com.lprashant.ludo;
 
 import java.util.List;
 
-import com.google.common.collect.Lists;
 import com.lprashant.ludo.track.Track;
 
 public class Game {
@@ -11,26 +10,30 @@ public class Game {
 	Track track;
 	Dice dice;
 
-	public Game() {
-		players = Lists.newArrayList(new Player("player - 1"), new Player("player - 2"), new Player("player - 3"),
-				new Player("player - 4"));
+	public Game(Dice dice) {
+		players = Player.getPlayersSet();
 		track = new Track(players);
-		
-		dice = new Dice();
-		
-		for ( int i=0;i< 100;i++) {
-			Player curPlayer = players.get(i%4);
+
+		this.dice = dice;
+	}
+
+	public void start() {
+		System.out.println("Game started");
+		for (int i = 0; i < 10000; i++) {
+			Player curPlayer = players.get(i%4); // FIXME hardcoding
 			Integer steps = dice.roll();
-			for(Knight k: curPlayer.getKnights()) {
-				if( k.canMove(steps)) {
+			System.out.println(curPlayer + "Taking " + steps);
+			for (Knight k : curPlayer.getKnights()) {
+				if (k.canMove(steps)) {
 					System.out.println("Do you want to move Knight " + k + "?");
-					if(true) {
+					if (true) {
 						k.move(steps);
 						break;
 					}
 				}
 			}
 		}
+		System.out.println("Game ended");
 	}
 
 }

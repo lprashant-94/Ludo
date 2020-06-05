@@ -19,7 +19,6 @@ public class InsideHomePlace extends LinkablePlace implements Place {
 	public void move(Knight knight, Integer steps) {
 		if (canMove(knight, steps)) {
 			this.nextPlace.move(knight, 0); // 6 steps will be consumed inside home only.
-//			knight.setPlace(this.nextPlace);
 		}
 	}
 
