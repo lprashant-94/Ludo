@@ -22,17 +22,17 @@ public class Track {
 
 			LinkablePlace lastPlace = homePlace;
 			for (int i = 0; i < 7; i++) {
-				SingleKnightPlace place = new SingleKnightPlace();
+				SingleKnightPlace place = new SingleKnightPlace(player.getName(),i+1);
 				lastPlace.setNext(place);
 				lastPlace = place;
 			}
 
-			SafePlace safePlace = new SafePlace();
+			SafePlace safePlace = new SafePlace(player.getName());
 			lastPlace.setNext(safePlace);
 			lastPlace = safePlace;
 
 			for (int i = 0; i < 2; i++) {
-				SingleKnightPlace place = new SingleKnightPlace();
+				SingleKnightPlace place = new SingleKnightPlace(player.getName(), i + 9);
 				lastPlace.setNext(place);
 				lastPlace = place;
 			}
@@ -54,7 +54,7 @@ public class Track {
 			EndPlace endPlace = new EndPlace(nextPlayer);
 			lastPlace.setNext(endPlace);
 
-			SingleKnightPlace place = new SingleKnightPlace();
+			SingleKnightPlace place = new SingleKnightPlace(nextPlayer.getName(), 0);
 			privateEntryPlace.setNext(place);
 			place.setNext(nextPlayer.getHomePlace());
 		}

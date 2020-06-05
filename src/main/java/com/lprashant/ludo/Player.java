@@ -52,7 +52,7 @@ public class Player {
 	public String getName() {
 		return name;
 	}
-
+	
 	@Override
 	public String toString() {
 		return MoreObjects.toStringHelper(getClass()).add("Name", name).add("Knights", knights).toString();

@@ -1,5 +1,6 @@
 package com.lprashant.ludo.track;
 
+import com.google.common.base.MoreObjects;
 import com.lprashant.ludo.Knight;
 import com.lprashant.ludo.Player;
 
@@ -33,4 +34,9 @@ public class PrivateEntryPlace extends SingleKnightPlace implements Place {
 		this.privateNext = privatePlace;
 	}
 
+
+	@Override
+	public String toString() {
+		return MoreObjects.toStringHelper(getClass()).add("Player", player.getName()).toString();
+	}
 }
