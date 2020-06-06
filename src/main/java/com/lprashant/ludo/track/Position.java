@@ -28,15 +28,15 @@ public class Position {
 			break;
 		case RED:
 			boardX = -y;
-			boardY = -x;
+			boardY = x;
 			break;
 		case BLUE:
-			boardX = x;
+			boardX = -x;
 			boardY = -y;
 			break;
 		case YELLOW:
-			boardX = -y;
-			boardY = x;
+			boardX = y;
+			boardY = -x;
 			break;
 		}
 	}
