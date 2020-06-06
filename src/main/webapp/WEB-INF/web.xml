@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
+<!-- 	<filter>
+		<filter-name>guiceFilter</filter-name>
+		<filter-class>com.google.inject.servlet.GuiceFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>guiceFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<listener>
+		<listener-class>myapp.MyGuiceServletConfig</listener-class>
+	</listener>
+
+
+ -->
+	<servlet>
+		<servlet-name>ludo</servlet-name>
+		<servlet-class>com.lprashant.ludo.LudoHomeServlet</servlet-class>
+	</servlet>
+
+
+	<welcome-file-list>
+		<welcome-file>ludo.html</welcome-file>
+	</welcome-file-list>
+
+
+	<servlet-mapping>
+		<servlet-name>ludo</servlet-name>
+		<url-pattern>/ludo</url-pattern>
+	</servlet-mapping>
+
+
+</web-app>

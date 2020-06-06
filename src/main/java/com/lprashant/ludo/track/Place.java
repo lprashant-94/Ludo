@@ -7,5 +7,6 @@ public interface Place {
 	boolean canMove(Knight knight, Integer steps);
 
 	void move(Knight knight, Integer steps);
-
+	
+	Position getPosition();
 }

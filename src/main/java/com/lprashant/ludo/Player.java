@@ -8,6 +8,8 @@ import com.google.common.collect.Lists;
 import com.lprashant.ludo.track.HomePlace;
 import com.lprashant.ludo.track.InsideHomePlace;
 import com.lprashant.ludo.track.Place;
+import com.lprashant.ludo.track.Position;
+import com.lprashant.ludo.track.Position.COLOR;
 
 public class Player {
 
@@ -34,7 +36,7 @@ public class Player {
 	}
 
 	public static ArrayList<Player> getPlayersSet() {
-		return Lists.newArrayList(new Player("RED"), new Player("GREEN"), new Player("YELLOW"), new Player("BLUE"));
+		return Lists.newArrayList(new Player("GREEN"), new Player("RED"), new Player("BLUE"), new Player("YELLOW"));
 	}
 
 	public List<Knight> getKnights() {
@@ -53,6 +55,9 @@ public class Player {
 		return name;
 	}
 	
+	public COLOR getColor() {
+		return Position.COLOR.valueOf(getName());
+	}
 	@Override
 	public String toString() {
 		return MoreObjects.toStringHelper(getClass()).add("Name", name).add("Knights", knights).toString();

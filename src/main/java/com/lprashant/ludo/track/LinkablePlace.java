@@ -3,7 +3,7 @@ package com.lprashant.ludo.track;
 public class LinkablePlace {
 
 	protected Place nextPlace;
-
+	
 	public LinkablePlace() {
 		super();
 	}
@@ -11,5 +11,6 @@ public class LinkablePlace {
 	public void setNext(Place nextPlace) {
 		this.nextPlace = nextPlace;
 	}
-
+	
+	
 }

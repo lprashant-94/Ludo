@@ -7,9 +7,11 @@ import com.lprashant.ludo.Player;
 public class EndPlace extends LinkablePlace implements Place {
 
 	Player player;
+	Position position;
 
 	public EndPlace(Player player) {
 		this.player = player;
+		position = new Position(player.getColor(), 7, 8);
 	}
 
 	@Override
@@ -24,10 +26,14 @@ public class EndPlace extends LinkablePlace implements Place {
 		}
 	}
 
-
 	@Override
 	public String toString() {
 		return MoreObjects.toStringHelper(getClass()).add("Player", player.getName()).toString();
 	}
-	
+
+	@Override
+	public Position getPosition() {
+		return position;
+	}
+
 }

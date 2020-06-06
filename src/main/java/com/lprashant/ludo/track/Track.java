@@ -22,17 +22,24 @@ public class Track {
 
 			LinkablePlace lastPlace = homePlace;
 			for (int i = 0; i < 7; i++) {
-				SingleKnightPlace place = new SingleKnightPlace(player.getName(),i+1);
+				Position p;
+				if (i < 4)
+					p = new Position(player.getColor(), i + 3, 7);
+				else
+					p = new Position(player.getColor(), 7, 6 + 4 - i); // i is already incremented till 4, so minus 3 needed.
+
+				SingleKnightPlace place = new SingleKnightPlace(player.getName(), p);
 				lastPlace.setNext(place);
 				lastPlace = place;
 			}
 
-			SafePlace safePlace = new SafePlace(player.getName());
+			SafePlace safePlace = new SafePlace(player.getName(), new Position(player.getColor(), 7, 3));
 			lastPlace.setNext(safePlace);
 			lastPlace = safePlace;
 
 			for (int i = 0; i < 2; i++) {
-				SingleKnightPlace place = new SingleKnightPlace(player.getName(), i + 9);
+				SingleKnightPlace place = new SingleKnightPlace(player.getName(),
+						new Position(player.getColor(), 7, 2 - i));
 				lastPlace.setNext(place);
 				lastPlace = place;
 			}
@@ -41,12 +48,12 @@ public class Track {
 			PrivateEntryPlace privateEntryPlace = new PrivateEntryPlace(nextPlayer);
 			lastPlace.setNext(privateEntryPlace);
 
-			PrivatePlace privatePlace = new PrivatePlace(nextPlayer);
+			PrivatePlace privatePlace = new PrivatePlace(nextPlayer, 0);
 			privateEntryPlace.setPrivatePlace(privatePlace);
 			lastPlace = privatePlace;
 
-			for (int i = 0; i < 4; i++) {
-				PrivatePlace place = new PrivatePlace(nextPlayer);
+			for (int i = 1; i < 5; i++) {
+				PrivatePlace place = new PrivatePlace(nextPlayer, i);
 				lastPlace.setNext(place);
 				lastPlace = place;
 			}
@@ -54,7 +61,8 @@ public class Track {
 			EndPlace endPlace = new EndPlace(nextPlayer);
 			lastPlace.setNext(endPlace);
 
-			SingleKnightPlace place = new SingleKnightPlace(nextPlayer.getName(), 0);
+			SingleKnightPlace place = new SingleKnightPlace(nextPlayer.getName(),
+					new Position(nextPlayer.getColor(), 1, 7));
 			privateEntryPlace.setNext(place);
 			place.setNext(nextPlayer.getHomePlace());
 		}

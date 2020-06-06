@@ -7,17 +7,13 @@ public class SingleKnightPlace extends LinkablePlace implements Place {
 
 	Knight presentKnight;
 	String name;
-	int index;
-	SingleKnightPlace(String name, int index) {
-		this.name=name;
-		this.index = index;
+	Position position;
+
+	SingleKnightPlace(String name, Position position) {
+		this.name = name;
+		this.position = position;
 	}
-	
-	SingleKnightPlace() {
-		this.name = "INVALID";
-		this.index = -1;
-	}
-	
+
 	@Override
 	public boolean canMove(Knight knight, Integer steps) {
 		if (steps == 0) {
@@ -50,6 +46,11 @@ public class SingleKnightPlace extends LinkablePlace implements Place {
 
 	@Override
 	public String toString() {
-		return MoreObjects.toStringHelper(getClass()).add("NearPlayer", name).add("id", index).toString();
+		return MoreObjects.toStringHelper(getClass()).add("NearPlayer", name).add("position", position).toString();
+	}
+
+	@Override
+	public Position getPosition() {
+		return position;
 	}
 }

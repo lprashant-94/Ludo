@@ -10,6 +10,7 @@ public class PrivateEntryPlace extends SingleKnightPlace implements Place {
 	Place privateNext;
 
 	public PrivateEntryPlace(Player player) {
+		super(player.getName(), new Position(player.getColor(), 1, 8));
 		this.player = player;
 	}
 

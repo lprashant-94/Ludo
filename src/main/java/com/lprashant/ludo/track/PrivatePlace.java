@@ -7,9 +7,12 @@ import com.lprashant.ludo.Player;
 public class PrivatePlace extends SingleKnightPlace implements Place {
 
 	Player player;
-	
-	public PrivatePlace(Player player) {
+	Integer index;
+
+	public PrivatePlace(Player player, Integer index) {
+		super(player.getName(), new Position(player.getColor(), index + 2, 8));
 		this.player = player;
+		this.index = index;
 	}
 
 	@Override
@@ -19,10 +22,10 @@ public class PrivatePlace extends SingleKnightPlace implements Place {
 
 	@Override
 	public void move(Knight knight, Integer steps) {
-		if(knight.getPlayer().equals(player) && canMove(knight, steps)) {
+		if (knight.getPlayer().equals(player) && canMove(knight, steps)) {
 			super.move(knight, steps);
 		}
-		
+
 	}
 
 	@Override

@@ -6,11 +6,13 @@ import com.lprashant.ludo.Knight;
 public class SafePlace extends LinkablePlace implements Place {
 
 	String name;
+	Position position;
 
-	SafePlace(String name) {
+	SafePlace(String name, Position position) {
 		this.name = name;
+		this.position = position;
 	}
-	
+
 	SafePlace() {
 	}
 
@@ -31,5 +33,10 @@ public class SafePlace extends LinkablePlace implements Place {
 	@Override
 	public String toString() {
 		return MoreObjects.toStringHelper(getClass()).add("NearPlayer", name).toString();
+	}
+
+	@Override
+	public Position getPosition() {
+		return position;
 	}
 }
