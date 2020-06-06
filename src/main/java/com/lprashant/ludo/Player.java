@@ -13,11 +13,11 @@ import com.lprashant.ludo.track.Position.COLOR;
 
 public class Player {
 
-	List<Knight> knights;
+	private List<Knight> knights;
 
-	String name;
-	InsideHomePlace insideHomePlace;
-	HomePlace homePlace;
+	private String name;
+	private InsideHomePlace insideHomePlace;
+	private HomePlace homePlace;
 
 	// Que: is it good practice to pass this instance to all other classes,
 	// Is there any way in oop to have reverse reference to object

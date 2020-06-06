@@ -22,6 +22,10 @@
 		<servlet-class>com.lprashant.ludo.LudoHomeServlet</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>ludogame</servlet-name>
+		<servlet-class>com.lprashant.ludo.LudoGameServlet</servlet-class>
+	</servlet>
 
 	<welcome-file-list>
 		<welcome-file>ludo.html</welcome-file>
@@ -33,5 +37,9 @@
 		<url-pattern>/ludo</url-pattern>
 	</servlet-mapping>
 
+	<servlet-mapping>
+		<servlet-name>ludogame</servlet-name>
+		<url-pattern>/ludogame</url-pattern>
+	</servlet-mapping>
 
 </web-app>
