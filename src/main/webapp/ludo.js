@@ -5,8 +5,6 @@ var YELLOW = "yellow";
 function init() {
 	var stage = new createjs.Stage("demoCanvas");
 
-	stage.addChild(loadBoard());
-
 	loadPieces(stage);
 	
 	stage.update();
@@ -21,8 +19,6 @@ function loadPieces(stage) {
 			stage.addChild(getPiece(data[i].Color, 34 * (data[i].X-1), 34* (data[i].Y-1) ))
 		}
 		stage.update();
-		
-		
 	})
 }
 
